@@ -26,7 +26,10 @@ export const defaultContentPageLayout: PageLayout = {
     Component.MobileOnly(Component.Spacer()),
     Component.Search(),
     Component.Darkmode(),
-    Component.DesktopOnly(Component.Explorer()),
+    Component.DesktopOnly(Component.Explorer({
+      title: "一覧", // title of the explorer component
+      folderDefaultState: "open", // default state of folders ("collapsed" or "open")
+    })),
   ],
   right: [
     Component.Graph(),
