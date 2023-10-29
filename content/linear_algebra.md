@@ -4,26 +4,46 @@ title: 線形代数 Linear Algebra
 
 ```mermaid
 flowchart LR
-  linear_transformation["線形変換"]
   linear_space["線形空間"]
   matrix["行列"]
   determinant["行列式"]
   linearly_independent["線形独立(従属)"]
-  base["基底"]
-  linear_map["線形写像"]
+  base["基底・次元"]
+  linear_map["線形写像・核・像"]
   cofactor_formula(["余因子公式"])
-  dimension["次元"]
-  kernel_image["核・像"]
-  dimension_theory(["次元定理"])
-  linear_space --> linearly_independent
-  matrix & linearly_independent --> determinant
-  linearly_independent --> base
+  dimension_theorem(["階数定理"])
+  gaussian_elimination(["Gauss の消去法"])
+  inner_product["内積"]
+  subgraph "確率論"
+    stochastic_mat["確率行列"]
+  end
+  subgraph "統計"
+    least_squares(["最小二乗法"])
+    correlation["相関係数"]
+  end
+  subgraph "グラフ理論"
+    adjacency_matrix["隣接行列"]
+    page_rank(["Page Rank アルゴリズム"])
+  end
+  subgraph "幾何学"
+    orthogonal["直交・射影・角度"]
+    linear_transformation["一次変換"]
+  end
+  adjacency_matrix & stochastic_mat --> page_rank
+  matrix --> stochastic_mat
+  orthogonal --> correlation
+  linear_space --> inner_product
+  inner_product --> orthogonal
   determinant --> cofactor_formula
-  base --> dimension
+  base & linear_map --> dimension_theorem
+  gaussian_elimination --> least_squares
   linear_space --> linear_map
-  linear_map --> kernel_image
+  linear_space --> linearly_independent
   linear_transformation --> matrix
-  dimension & kernel_image --> dimension_theory
+  linearly_independent --> base
+  matrix --> adjacency_matrix
+  matrix --> gaussian_elimination
+  matrix & linearly_independent --> determinant
 ```
 
 ## 内容
@@ -61,5 +81,7 @@ flowchart LR
 
 * 🎓 [MIT OCW/Gilbert Strang/Linear Algebra](https://ocw.mit.edu/courses/18-06-linear-algebra-spring-2010/pages/syllabus/)
 * 📘 [嶺幸太郎『線形代数学』](http://www.math.kanagawa-u.ac.jp/mine/linear_alg/index.html)
+* 🌐 [Interactive Linear Algebra](https://textbooks.math.gatech.edu/ila/index2.html)
 * 🌐 [elevri/Linear Algebra](https://www.elevri.com/courses/linear-algebra)
 * 🎥 [3Blue1BrownJapan/線形代数のエッセンス](https://www.youtube.com/watch?v=ZXuZHNjS2tA&list=PL5WufEA7WHQGX7Su06JzbPDXUQGOd0wlq)
+* 🎥 [予備校のノリで学ぶ線形代数入門](https://www.youtube.com/playlist?list=PLDJfzGjtVLHnc1vTpBaCNKMUl6HauQv1a)
